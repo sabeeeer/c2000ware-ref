@@ -13,12 +13,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      - name: Portability gate
+        shell: pwsh
+        run: |
+          pwsh -NoProfile -File tools/portability_gate.ps1 -RepoPath .
+          $rc = $LASTEXITCODE
+          if ($rc -ne 0 -and $rc -ne 2) { throw "portability gate failed with exit $rc" }
       - name: Validate snapshot boundaries
         run: |
           python - <<'PY'
           import pathlib, subprocess, sys
           files = subprocess.check_output(["git", "ls-files"], text=True).splitlines()
-          allowed = {".c", ".h", ".cmd", ".asm", ".syscfg", ".projectspec", ".md", ".html", ".yml", ".yaml", ".gitignore", ""}
+          allowed = {".c", ".h", ".cmd", ".asm", ".syscfg", ".projectspec", ".md", ".html", ".yml", ".yaml", ".ps1", ".gitignore", ""}
           bad = [p for p in files if pathlib.Path(p).suffix.lower() not in allowed]
           required = {"README.md", "RECOVER.md", "AGENTS.md", "IRREPLACEABLE.md", "LICENSE.md", "docs/manifest.html"}
           missing = sorted(required - set(files))
