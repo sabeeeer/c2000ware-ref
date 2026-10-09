@@ -1,0 +1,3 @@
+# Original TI SDK sources may contain vendor build-tool paths.
+# Keep them unchanged; credential scanning is not affected.
+^utilities/clb_tool/clb_syscfg/systemc/SystemC_Compiler\.cmd$

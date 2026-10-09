@@ -1,5 +1,9 @@
 # C2000Ware 源码快照（离线参照副本）
 
+> [!WARNING]
+> 本仓库不是完整 TI 安装包，不包含全部文档、预编译库或授权。
+> 详见 [`IRREPLACEABLE.md`](IRREPLACEABLE.md)。
+
 > **这是 TI C2000Ware Core SDK v26.00.00.00.STS 的源码快照**，只保留可阅读的源文件：
 > `.c` `.h` `.cmd` `.asm` `.syscfg` `.projectspec`（已剔除编译产物 `.obj/.map/.mk/.pp` 与 PDF/HTML 文档）。
 >
