@@ -9,6 +9,7 @@
 > - 快照日期：2026-09-27
 > - 原路径（本机）：`F:\c2000ware-core-sdk`
 > - **官方完整包（推荐优先使用）**：https://www.ti.com/tool/C2000WARE  （含全部文档、工具、SysConfig、预编译库）
+> - **恢复/校验方式**：见 [`RECOVER.md`](RECOVER.md)
 
 ## 内容
 
